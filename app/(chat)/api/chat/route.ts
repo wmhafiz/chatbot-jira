@@ -23,6 +23,15 @@ import { createDocument } from '@/lib/ai/tools/create-document';
 import { updateDocument } from '@/lib/ai/tools/update-document';
 import { requestSuggestions } from '@/lib/ai/tools/request-suggestions';
 import { getWeather } from '@/lib/ai/tools/get-weather';
+import { searchKnowledgeBase } from '@/lib/ai/tools/search-knowledge-base';
+import { createJiraTicketTool } from '@/lib/ai/tools/create-jira-ticket';
+import { searchJiraTicketsTool } from '@/lib/ai/tools/search-jira-tickets';
+import { addJiraCommentTool } from '@/lib/ai/tools/add-jira-comment';
+import { createKbEntryTool } from '@/lib/ai/tools/create-kb-entry';
+import { updateKbEntryTool } from '@/lib/ai/tools/update-kb-entry';
+import { getKbEntryTool } from '@/lib/ai/tools/get-kb-entry';
+import { suggestKbEntriesTool } from '@/lib/ai/tools/suggest-kb-entries';
+import { listKbCategoriesTool } from '@/lib/ai/tools/list-kb-categories';
 import { isProductionEnvironment } from '@/lib/constants';
 import { myProvider } from '@/lib/ai/providers';
 import { entitlementsByUserType } from '@/lib/ai/entitlements';
@@ -159,6 +168,15 @@ export async function POST(request: Request) {
                   'createDocument',
                   'updateDocument',
                   'requestSuggestions',
+                  'searchKnowledgeBase',
+                  'createJiraTicketTool',
+                  'searchJiraTicketsTool',
+                  'addJiraCommentTool',
+                  'createKbEntryTool',
+                  'updateKbEntryTool',
+                  'getKbEntryTool',
+                  'suggestKbEntriesTool',
+                  'listKbCategoriesTool',
                 ],
           experimental_transform: smoothStream({ chunking: 'word' }),
           experimental_generateMessageId: generateUUID,
@@ -170,6 +188,15 @@ export async function POST(request: Request) {
               session,
               dataStream,
             }),
+            searchKnowledgeBase,
+            createJiraTicketTool,
+            searchJiraTicketsTool,
+            addJiraCommentTool,
+            createKbEntryTool,
+            updateKbEntryTool,
+            getKbEntryTool,
+            suggestKbEntriesTool,
+            listKbCategoriesTool,
           },
           onFinish: async ({ response }) => {
             if (session.user?.id) {

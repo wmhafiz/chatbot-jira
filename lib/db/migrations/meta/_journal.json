@@ -50,6 +50,20 @@
       "when": 1746118166211,
       "tag": "0006_marvelous_frog_thor",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1749781932765,
+      "tag": "0007_nebulous_piledriver",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1749786238540,
+      "tag": "0008_chief_ravenous",
+      "breakpoints": true
     }
   ]
 }
