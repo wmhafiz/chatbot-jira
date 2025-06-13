@@ -168,3 +168,13 @@ export const stream = pgTable(
 );
 
 export type Stream = InferSelectModel<typeof stream>;
+
+// Export KB schema tables
+export {
+  knowledgeBaseCategory,
+  knowledgeBaseArticle,
+  jiraTicket,
+  type KnowledgeBaseCategory,
+  type KnowledgeBaseArticle,
+  type JiraTicket,
+} from './kb-schema';

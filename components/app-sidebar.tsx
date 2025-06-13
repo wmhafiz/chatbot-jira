@@ -4,6 +4,7 @@ import type { User } from 'next-auth';
 import { useRouter } from 'next/navigation';
 
 import { PlusIcon } from '@/components/icons';
+import { BookOpen, Plus, Search, Folder } from 'lucide-react';
 import { SidebarHistory } from '@/components/sidebar-history';
 import { SidebarUserNav } from '@/components/sidebar-user-nav';
 import { Button } from '@/components/ui/button';
@@ -38,23 +39,48 @@ export function AppSidebar({ user }: { user: User | undefined }) {
                 Chatbot
               </span>
             </Link>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button
-                  variant="ghost"
-                  type="button"
-                  className="p-2 h-fit"
-                  onClick={() => {
-                    setOpenMobile(false);
-                    router.push('/');
-                    router.refresh();
-                  }}
-                >
-                  <PlusIcon />
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent align="end">New Chat</TooltipContent>
-            </Tooltip>
+            <div className="flex gap-1">
+              {/* KB Dropdown Menu */}
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    type="button"
+                    className="p-2 h-fit"
+                    onClick={() => {
+                      setOpenMobile(false);
+                      router.push('/kb');
+                    }}
+                  >
+                    <BookOpen className="h-4 w-4" />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent align="end">
+                  <div className="space-y-1">
+                    <div className="font-medium">Knowledge Base</div>
+                    <div className="text-xs text-muted-foreground">Browse & manage articles</div>
+                  </div>
+                </TooltipContent>
+              </Tooltip>
+              
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    type="button"
+                    className="p-2 h-fit"
+                    onClick={() => {
+                      setOpenMobile(false);
+                      router.push('/');
+                      router.refresh();
+                    }}
+                  >
+                    <PlusIcon />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent align="end">New Chat</TooltipContent>
+              </Tooltip>
+            </div>
           </div>
         </SidebarMenu>
       </SidebarHeader>

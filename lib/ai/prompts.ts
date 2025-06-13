@@ -32,6 +32,33 @@ This is a guide for using artifacts tools: \`createDocument\` and \`updateDocume
 Do not update document right after creating it. Wait for user feedback or request to update it.
 `;
 
+export const knowledgeBasePrompt = `
+**Knowledge Base Integration:**
+
+You have access to a comprehensive knowledge base system with the following capabilities:
+
+**Search & Discovery:**
+- Use \`searchKnowledgeBase\` to find relevant articles when users ask questions
+- Use \`suggestKbEntriesTool\` to recommend related content based on conversation context
+- Use \`listKbCategoriesTool\` to show available categories for organization
+
+**Content Management:**
+- Use \`createKbEntryTool\` to capture important information, solutions, or insights from conversations
+- Use \`updateKbEntryTool\` to improve or modify existing KB articles
+- Use \`getKbEntryTool\` to retrieve detailed information about specific entries
+
+**Best Practices:**
+- Always search the KB first when users ask questions that might have existing answers
+- Suggest creating KB entries for valuable solutions, troubleshooting steps, or insights
+- Link related KB entries when creating Jira tickets for better context
+- Use appropriate categories and tags to organize content effectively
+- Provide clear, actionable content when creating or updating KB entries
+
+**Integration with Other Tools:**
+- Jira tickets automatically link to related KB entries for better context
+- Use KB search results to provide comprehensive answers before suggesting new solutions
+`;
+
 export const regularPrompt =
   'You are a friendly assistant! Keep your responses concise and helpful.';
 
@@ -60,9 +87,9 @@ export const systemPrompt = ({
   const requestPrompt = getRequestPromptFromHints(requestHints);
 
   if (selectedChatModel === 'chat-model-reasoning') {
-    return `${regularPrompt}\n\n${requestPrompt}`;
+    return `${regularPrompt}\n\n${requestPrompt}\n\n${knowledgeBasePrompt}`;
   } else {
-    return `${regularPrompt}\n\n${requestPrompt}\n\n${artifactsPrompt}`;
+    return `${regularPrompt}\n\n${requestPrompt}\n\n${artifactsPrompt}\n\n${knowledgeBasePrompt}`;
   }
 };
 
