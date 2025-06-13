@@ -232,10 +232,10 @@ SELECT * FROM pg_extension WHERE extname = 'vector';
 
 ### 📖 Comprehensive Guides
 
-- **[📋 Implementation Summary](.ai/docs/00-implementation-summary.md)**: Complete project overview and achievements
-- **[🔍 Vector Database Architecture](.ai/docs/01-vector-database-architecture.md)**: Detailed semantic search implementation
-- **[🤖 AI Tools Architecture](.ai/docs/02-ai-tools-architecture.md)**: AI tool development and integration patterns
-- **[💬 Chatbot Scenarios & Workflows](.ai/docs/03-chatbot-scenarios-and-workflows.md)**: Real-world usage examples
+- **[📋 Implementation Summary](.ai/docs-prod-support/00-implementation-summary.md)**: Complete project overview and achievements
+- **[🔍 Vector Database Architecture](.ai/docs-prod-support/01-vector-database-architecture.md)**: Detailed semantic search implementation
+- **[🤖 AI Tools Architecture](.ai/docs-prod-support/02-ai-tools-architecture.md)**: AI tool development and integration patterns
+- **[💬 Chatbot Scenarios & Workflows](.ai/docs-prod-support/03-chatbot-scenarios-and-workflows.md)**: Real-world usage examples
 
 ### 🛠️ API Reference
 
